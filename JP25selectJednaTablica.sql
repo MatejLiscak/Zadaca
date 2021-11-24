@@ -72,42 +72,50 @@ select * from osoba where sifra between 5 and 15;
 # Izlistajte prezimena i imena osoba
 
 
-
-
 # baza mjesta
 # odaberite sva mjesta koja se nalaze u Osječko baranjskoj
 # županiji
+select * from mjesto where postanskibroj like '31%';
 
 # odaberite sva mjesta koja u sebi imaju niz znakova ac
+select * from mjesto where naziv like '%ac%';
+
+
 
 # Dodajte mjesto Programovci u Osječko baranjskoj županiji
-
+select * from mjesto where naziv='Programovci';
+insert into mjesto(postanskibroj,zupanija,naziv)values
+(345134,4,'Programovci');
 ################################################
 #DOMAĆA ZADAĆA: UČITATI SVE BAZE
 
 ##### baza knjiznica
 # odaberite sve autore za koje ne znamo datum rođenja
-
+select * from autor where datumrodenja is null;
 # Unesite sebe kao autora
-
+select * from autor;
+insert into autor(sifra,ime,prezime,datumrodjenja)values
+(4,'Matej','Liscak','1999-01-29');
 # odaberite autore koji su rođeni na Vaš datum rođenja
 # uključujući i godinu
-
+select * from autor where datumrodenja='1999-01-29';
 # odaberite autore koji se zovu kao Vi
-
+select * from autor where ime = 'Matej';
 # odaberite sve izdavače koji su 
 # društva s ograničenom odgovornošću
-
+select * from izdavac where naziv like '%d.o.o%';
 
 ##### baza world
 # odaberite sve zemlje iz Europe
-
+select * from country where Continent = 'Europe';
 # unesite mjesto Donji Miholjac
-
+select * from city where CountryCode = 'HRV' and District = 'Osijek-Baranja';
+insert into city(ID,name,CountryCode,District,Population)values
+(null,'Donji Miholjac','HRV','Osijek-Baranja',9491);
 # Promjenite Donji Miholjac u Špičkovinu
-
+update city set name = 'Spickovina' where id='4080';
 # Obrišite mjesto Špičkovina
-
+delete from city where name = 'Spickovina';
 
 
 
