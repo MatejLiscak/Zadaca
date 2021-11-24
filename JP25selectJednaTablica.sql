@@ -85,7 +85,7 @@ select * from mjesto where naziv like '%ac%';
 # Dodajte mjesto Programovci u Osječko baranjskoj županiji
 select * from mjesto where naziv='Programovci';
 insert into mjesto(postanskibroj,zupanija,naziv)values
-(345134,4,'Programovci');
+(34513,4,'Programovci');
 ################################################
 #DOMAĆA ZADAĆA: UČITATI SVE BAZE
 
