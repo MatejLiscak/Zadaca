@@ -117,6 +117,42 @@ update city set name = 'Spickovina' where id='4080';
 # Obrišite mjesto Špičkovina
 delete from city where name = 'Spickovina';
 
+###### DZ
+
+# Baza Knjižnica
+#izvucite sve nazive knjiga koje su izdali
+#ne aktivni izdavači
+
+select a.naslov
+from katalog a inner join izdavac b on a.izdavac=b.sifra
+where b.aktivan is null;
+
+# izvucite sve autore koji u svojim naslovima 
+# knjiga nemaju slovo B
+
+select distinct a.ime,a.prezime from 
+autor a inner join katalog b on a.sifra=b.autor
+where b.naslov not like '%b%';
+
+# izvucite sve aktivne izdavače koji su izdali knjige u Zagrebu
+
+select a.mjesto,b.naziv
+from katalog a inner join izdavac b on a.izdavac=b.sifra
+inner join mjesto c on a.mjesto = c.sifra
+where c.postanskiBroj = 10000;
+
+
+# sakila baza
+# izvucite sve nazive zemalja čiji gradovi nemaju definiranu 
+# adresu 
+
+ select distinct b.country 
+ from city a inner join country b on a.country_id = b.country_id
+ inner join address c on c.city_id = a.city_id
+ where c.address2 is null;
+
+
+
 
 
 
